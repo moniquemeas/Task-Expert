@@ -1,0 +1,29 @@
+{
+  "name": "task-expert",
+  "version": "1.0.0",
+  "description": "Amir was here",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moniquemeas/Task-Expert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moniquemeas/Task-Expert/issues"
+  },
+  "homepage": "https://github.com/moniquemeas/Task-Expert#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
