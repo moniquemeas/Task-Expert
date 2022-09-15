@@ -145,3 +145,49 @@ footer a {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 /*Hero Section Styling Ends*/
+
+/*----------------------------------------------------------*/
+
+.zip-btn {
+    border: 3px solid var(--primary-color);
+}
+
+/*Style About Us Section*/
+
+.section-title {
+    font-family: 'Square Peg', cursive;
+    font-weight: bold;
+    font-size: 5.00vw;
+    color: var(--tertiary-color);
+    border-bottom: 3px solid;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
+}
+  
+.primary-border {
+    border-color: var(--primary-color);
+}
+  
+.secondary-border {
+    border-color: var(--tertiary-color);
+}
+
+.intro {
+    background-color: black;
+}
+
+.intro p {
+    line-height: 1.7;
+    color: var(--tertiary-color);
+    width: 80%;
+    font-size: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro h2 {
+    color: var(--primary-color);
+}
+/*End About Us Section Styling*/
