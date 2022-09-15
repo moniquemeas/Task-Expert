@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: blue;
+    --primary-color: #00008B;
     --secondary-color: #333333;
     --tertiary-color: white;
 }
@@ -39,17 +39,17 @@ header {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-position: 20%;
+    background-position: 10%;
     z-index: 9999;
 }
 
 header h1 {
     font-weight: bold;
     font-size: 5.00vw;
-    color: var(--primary-color);
     margin: 0;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
 
 header a {
     text-decoration: none;
@@ -76,7 +76,7 @@ header nav ul li a {
 
 header nav ul li a:hover {
     background: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     border-radius: 15px;
     text-shadow: none;
 }
@@ -123,7 +123,7 @@ footer a {
     flex-wrap: wrap;
     align-items: flex-end;
     background-attachment: fixed;
-    background-position: 20%;
+    background-position: 10%;
     padding-top: 1px;
 }
 
