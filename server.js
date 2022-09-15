@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-//app.use(require('./controllers'));
+app.use(require('./controllers'));
 
 
 
