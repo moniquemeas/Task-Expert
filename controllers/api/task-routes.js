@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const {User, Task} = require('../../models');
-//const multer = require('multer');
-//const upload = multer({dest: 'upload/'})
 
 
 router.get('/', (req, res) => {
