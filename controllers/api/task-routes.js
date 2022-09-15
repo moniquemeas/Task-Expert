@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User, Task} = require('../../models');
 
-
+//get all tasks
 router.get('/', (req, res) => {
     Task.findAll({
         attributes: ['id','price','services', 'location'],
@@ -19,6 +19,8 @@ router.get('/', (req, res) => {
     });
 
 });
+
+//get task by id
 router.get('/:id', (req, res) =>{
     Task.findOne({
         where: {
@@ -45,6 +47,7 @@ router.get('/:id', (req, res) =>{
     })
 });
 
+//create new task
 router.post('/', (req, res) => {
    
     Task.create({
@@ -62,6 +65,8 @@ router.post('/', (req, res) => {
     
 
 });
+
+//update task by id
 router.put('/:id', (req, res) => {
     Task.update({
         price: req.body.price,
@@ -88,6 +93,7 @@ router.put('/:id', (req, res) => {
       });
 
 });
+//delete task by id
 router.delete('/:id', (req, res) => {
     Task.destroy({
         where: {

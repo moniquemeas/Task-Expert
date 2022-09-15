@@ -27,6 +27,9 @@ User.init({
             len:[6]
         }
     },
+    userImage:{
+        type:DataTypes.STRING
+    },
     name:{
         type:DataTypes.STRING,
         allowNull:false
