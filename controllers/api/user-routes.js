@@ -1,6 +1,38 @@
 const router = require('express').Router();
+const path = require('path');
 const {User} = require('../../models');
+const multer = require('multer');
 
+//create storage to for images
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null,'./public/images')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname))
+
+    }
+});
+
+//function to upload images
+const upload = multer({
+    storage: storage,
+    //limit filesize to 1gig
+    limits: {fileSize: '1000000'},
+    fileFilter: (req, file, cb) => {
+        //set file type
+        const fileType = /jpeg|jpg|png|gif/
+        const mimeType = fileType.test(file.mimetype)
+        const extname = fileType.test(path.extname(file.originalname))
+
+        if(mimeType && extname) {
+            return cb(null, true)
+        }
+        cb('Invalid file type.')
+    }
+}).single('userImage')
+
+//get all users
 router.get('/', (req, res) =>{
 User.findAll({
     attributes:{exclude:['password']}
@@ -12,6 +44,7 @@ User.findAll({
 })
 
 });
+//get user by id
 router.get('/:id', (req, res) =>{
 User.findOne({
     attributes: {exclude: ['password']},
@@ -31,10 +64,14 @@ User.findOne({
     res.status(500).json(err)
 })
 });
-router.post('/', (req, res) => {
+
+//create user
+router.post('/',upload, (req, res) => {
+    
 User.create({
     username: req.body.username,
     password: req.body.password,
+    userImage: req.file.path,
     name: req.body.name,
     phone: req.body.phone,
     email: req.body.email
@@ -46,7 +83,9 @@ User.create({
     res.status(500).json(err);
 });
 });
-router.put('/:id', (req, res) => {
+
+//update user by id
+router.put('/:id',upload, (req, res) => {
     User.update(req.body, 
         {
             individualHooks: true,
@@ -55,7 +94,7 @@ router.put('/:id', (req, res) => {
             }
         },
            {
-        
+        userImage: req.file.path,
         password: req.body.password,
         name: req.body.name,
         phone: req.body.phone,
@@ -76,6 +115,7 @@ router.put('/:id', (req, res) => {
 });
 });
 
+//delete user
 router.delete('/:id', (req, res) => {
     User.destroy({
         where:{
@@ -94,4 +134,8 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
+
+
 module.exports = router;
