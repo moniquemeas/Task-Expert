@@ -121,24 +121,18 @@ footer a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: flex-end;
     background-attachment: fixed;
     background-position: 20%;
     padding-top: 1px;
 }
-.centerBtn {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-}
+
 
 .hero-cta {
     width: 35%;
     text-align: right;
     margin: 3.5%;
-    color: #fff;
+    color: black;
     font-size: 20px;
     line-height: 1.3;
 }
