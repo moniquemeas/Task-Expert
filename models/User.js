@@ -1,5 +1,6 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 //create User model
 
@@ -42,9 +43,19 @@ User.init({
             isEmail:true
         }
     }
-
 },
+
 {
+    hooks: {
+        async beforeCreate(newData) {
+            newData.password = await bcrypt.hash(newData.password, 10);
+            return newData;
+        },
+        async beforeUpdate(updatedData){
+            updatedData.password = await bcrypt.hash(updatedData.password, 10);
+            return updatedData;
+        }
+    },
     sequelize,
     timestamps:false,
     freezeTableName:true,
