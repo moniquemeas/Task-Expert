@@ -67,11 +67,12 @@ User.findOne({
 
 //create user
 router.post('/',upload, (req, res) => {
-    
+    const newFile = req.file.path.replace('\\', '/');
+  console.log(newFile);
 User.create({
     username: req.body.username,
     password: req.body.password,
-    userImage: req.file.path,
+    userImage: newFile,
     name: req.body.name,
     phone: req.body.phone,
     email: req.body.email
