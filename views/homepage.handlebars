@@ -3,11 +3,11 @@
 <div class="container">
     {{#each tasks as |task|}}    
     <div class="card" style="width:400px">
-              <img class="card-img-top" src="{{task.user.userImage}}" alt="Card image" style="width: 200px">
+              <img class="card-img-top" src="{{task.userImage}}" alt="Card image" style="width: 200px">
               <div class="card-body">
-                <h4 class="card-title">{{task.user.name}}</h4>
-                <div class="card-text">Phone: {{task.user.phone}}</div>
-                <div class="card-text">email: {{task.user.email}}</div>
+                <h4 class="card-title">{{task.name}}</h4>
+                <div class="card-text">Phone: {{task.phone}}</div>
+                <div class="card-text">email: {{task.email}}</div>
                 <div class="card-text">Service: {{task.services}}</div>
                 <div class="card-text">Price: {{task.price}}</div>
                 <div class="card-text">Location: {{task.location}}</div>
