@@ -88,7 +88,6 @@ header nav ul li a:hover {
 footer {
     background: var(--primary-color);
     width: 100%;
-    padding: 40px 35px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
