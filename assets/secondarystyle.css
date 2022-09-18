@@ -125,7 +125,7 @@ footer a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     background-attachment: fixed;
     background-position: 15%;
     padding-top: 1px;
