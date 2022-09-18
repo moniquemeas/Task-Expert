@@ -129,7 +129,7 @@ footer a {
 
 
 .hero-cta {
-    width: 35%;
+    width: 40%;
     text-align: right;
     margin: 3.5%;
     color: black;
@@ -153,13 +153,13 @@ footer a {
     border: 3px solid var(--primary-color);
 }
 
-/*Style About Us Section*/
+/*Style Find An Expert Section*/
 
 .section-title {
     font-family: 'Square Peg', cursive;
     font-weight: bold;
     font-size: 5.00vw;
-    color: var(--tertiary-color);
+    color: white;
     border-bottom: 3px solid;
     padding-bottom: 20px;
     text-align: center;
@@ -189,6 +189,6 @@ footer a {
 }
 
 .intro h2 {
-    color: var(--primary-color);
+    color: var(--tertiary-color);
 }
-/*End About Us Section Styling*/
+/*End Find An Expert Section Styling*/
