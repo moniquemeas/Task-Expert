@@ -192,3 +192,63 @@ footer a {
     color: var(--tertiary-color);
 }
 /*End Find An Expert Section Styling*/
+
+/*-----------------------------------------------------*/
+
+/*Style Dashboard Hero Form */
+.hero-form {
+    border: 3px solid var(--secondary-color);
+    background-color: rgba(72, 122, 180, 0.8);
+    padding: 20px;
+    color: var(--secondary-color);
+    width: 40%;
+    margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.hero-form h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.hero-form p {
+    margin: 5px 0 15px 0;
+}
+
+.form-input {
+    border: 1px solid var(--secondary-color);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--secondary-color);
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75)
+}
+
+/*Adding focus states for input fields*/
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+/*focus end*/
+
+.hero-form label {
+    margin: 0 5px;
+}
+
+.hero-form button {
+    color: var(--tertiary-color);
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+/*Adding pseudo classes*/
+.hero-form button:hover {
+    background-color: var(--tertiary-color);
+}
