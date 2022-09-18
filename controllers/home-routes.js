@@ -2,13 +2,14 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const {Task, User} = require('../models');
 
+
 router.get('/', (req, res) => {
     Task.findAll({
-        attributes: ['id','price','services', 'location'],
+        attributes: ['id', 'name', 'phone', 'email','price','services', 'location', 'userImage'],
         include:[
             {
                 model: User,
-                attributes: ['username', 'name', 'phone', 'email', 'userImage']
+                attributes: ['username']
             }
         ]
     })
@@ -26,8 +27,10 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login');
   });
-  router.get('/dashboard', (req, res) => {
-    res.render('dashboard');
-  });
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard')
+});
+
+
 
 module.exports = router;

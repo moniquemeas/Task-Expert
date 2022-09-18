@@ -1,36 +1,7 @@
 const router = require('express').Router();
 const path = require('path');
 const {User} = require('../../models');
-const multer = require('multer');
 
-//create storage to for images
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null,'./public/images')
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname))
-
-    }
-});
-
-//function to upload images
-const upload = multer({
-    storage: storage,
-    //limit filesize to 1gig
-    limits: {fileSize: '1000000'},
-    fileFilter: (req, file, cb) => {
-        //set file type
-        const fileType = /jpeg|jpg|png|gif/
-        const mimeType = fileType.test(file.mimetype)
-        const extname = fileType.test(path.extname(file.originalname))
-
-        if(mimeType && extname) {
-            return cb(null, true)
-        }
-        cb('Invalid file type.')
-    }
-}).single('userImage')
 
 //get all users
 router.get('/', (req, res) =>{
@@ -66,16 +37,13 @@ User.findOne({
 });
 
 //create user
-router.post('/',upload, (req, res) => {
-    const newFile = req.file.path.replace('\\', '/');
-  console.log(newFile);
+router.post('/', (req, res) => {
+    
 User.create({
     username: req.body.username,
     password: req.body.password,
-    userImage: newFile,
-    name: req.body.name,
-    phone: req.body.phone,
-    email: req.body.email
+    
+    
 })
 
 .then(userData => res.json(userData))
@@ -86,7 +54,7 @@ User.create({
 });
 
 //update user by id
-router.put('/:id',upload, (req, res) => {
+router.put('/:id', (req, res) => {
     User.update(req.body, 
         {
             individualHooks: true,
@@ -95,11 +63,9 @@ router.put('/:id',upload, (req, res) => {
             }
         },
            {
-        userImage: req.file.path,
+        
         password: req.body.password,
-        name: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email
+       
     }
     
 )
