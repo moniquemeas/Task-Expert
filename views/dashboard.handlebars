@@ -1,39 +1,31 @@
 <div>This is dashboard</div>
-<section class="container">
-        <div class="'form-wrap">
-            <h1>Add Job</h1>
-            <form>
-                <div action="/dashboard" method="POST" class="input-group">
-                    <label for="name">Full Name:</label>
-                    <input type="'text" name="name" id="name" class="Input-box" value={{name}}>
-                </div>
-                <div class="input-group">
-                    <label for="phone">Phone Number:</label>
-                    <input type="'text" name="phone" id="phone" class="Input-box" value={{phone}}>
-                </div>
-                <div class="input-group">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" id="email" class="Input-box" value={{email}}>
-                </div>
+<main class="container">
+        <div class="container d-flex justify-content-around mt-5">
+            <div class="new-post">
+                <h4>Create New Job</h4>
+          
+            <form class="add-job d-flex flex-column" method="POST" action="/dashboard" enctype="multipart/form-data">
+              <label class="form-label" for="userImage">Profile Image</label>
+              <input type="file" name="file">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" class="name-input">
+                <label class="form-label" for="phone">Phone</label>
+                <input type="text" class="phone-input" >
+                <label class="form-label" for="email">Email</label>
+                <input type="text" class="email-input" >
+                <label class="form-label" for="desc-input">Services</label>
+                <input type="text" class="service-input" >
+                <label class="form-label" for="price">Price per hour</label>
+                <input type="text" class="price-input" >
+                <label class="form-label" for="location">Location</label>
+                <input type="text" class="location-input" >
+                <label class="form-label" for="user-id" >User ID</label>
+                <input type="text" class="user_id-input" >
+                
 
-                <div class="input-group">
-                    <label for="services">Services:</label>
-                    <input type="'text" name="services" id="services" class="Input-box" placeholder="eg. housekeeper" value={{services}}>
-                </div>
-                <div class="input-group">
-                    <label for="price">Prices:</label>
-                    <input type="'text" name="price" id="price" class="Input-box" placeholder="eg. 25, 35" value = {{price}}>
-                </div>
-                <div class="input-group">
-                    <label for="location">Location:</label>
-                    <input type="text" name="location" id="location" class="Input-box" placeholder="eg. Orlando" value = {{location}}>
-                </div>
-                <div>
-                    <input type="submit" value="Add Job" class="btn btn-reverse">
-                </div>
-                
-                
+                <button type="submit" class="btn bg-dark text-white mt-3">Add Job</button>
             </form>
         </div>
-    </section>
-    
+
+    </main>
+    <script src="/javascript/add.js"></script>

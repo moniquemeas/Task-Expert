@@ -109,8 +109,14 @@ router.post('/',upload, (req, res) => {
 });
 
 //update task by id
-router.put('/:id', (req, res) => {
+router.put('/:id',upload, (req, res) => {
+    const re = /\\/gi;
+    const newFile = req.file.path.replace(re, '/');
+    const imageFile = newFile.replace('public/', '');
+    console.log(newFile);
+    console.log(imageFile)
     Task.update({
+        userImage: imageFile,
         name: req.body.name,
         phone: req.body.phone,
         email: req.body.email,

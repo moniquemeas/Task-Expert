@@ -3,7 +3,7 @@ const sequelize = require('./config/connection');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
-const upload = require('express-fileupload');
+
 
 
 
@@ -22,7 +22,6 @@ app.use(require('./controllers'));
 //create static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(upload())
 
 
 
