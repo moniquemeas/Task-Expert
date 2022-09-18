@@ -1,44 +1,35 @@
-const express = require("express");
-const bars = require('express-handlebars');
-const connection = require("./db/connection")
-const initWeb = require("./routes/web");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const passport = require("passport");
-const connection = require("./db/connection");
-const initIndexR = require("./routes");
+const express = require('express');
+const sequelize = require('./config/connection');
+const path = require('path');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+const upload = require('express-fileupload');
 
 const app = express();
-
 const PORT = process.env.PORT || 3001;
 
-connection.query('USE user_database');
+// middleware
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-//use cookie parser
-app.use(cookieParser('secret'));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(require('./controllers'));
 
-//config session
-app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
+//create static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Enable body parser post data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(upload())
 
-//Config view engine
-app.engine('bars', bars.engine({
-    extname: '.bars'
-}));
-app.set('view engine', 'bars');
 
-//Passport
-app.use(passport.initialize());
-app.use(passport.session());
 
-// init all web routes
-initIndexR(app);
+
+
+sequelize.sync({force:false}).then(() => {
+    app.listen(PORT, () => console.log('Server is running on port 3001.'))
+});
+
+
+
+
+

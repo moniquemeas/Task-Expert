@@ -1,8 +1,3 @@
-DROP TABLE IF EXISTS login_user;
+DROP DATABASE IF EXISTS task_expert_db;
 
-CREATE TABLE login_user(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL
-);
+CREATE DATABASE task_expert_db;

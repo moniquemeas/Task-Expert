@@ -1,0 +1,39 @@
+<div>This is dashboard</div>
+<section class="container">
+        <div class="'form-wrap">
+            <h1>Add Job</h1>
+            <form>
+                <div action="/dashboard" method="POST" class="input-group">
+                    <label for="name">Full Name:</label>
+                    <input type="'text" name="name" id="name" class="Input-box" value={{name}}>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="'text" name="phone" id="phone" class="Input-box" value={{phone}}>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" id="email" class="Input-box" value={{email}}>
+                </div>
+
+                <div class="input-group">
+                    <label for="services">Services:</label>
+                    <input type="'text" name="services" id="services" class="Input-box" placeholder="eg. housekeeper" value={{services}}>
+                </div>
+                <div class="input-group">
+                    <label for="price">Prices:</label>
+                    <input type="'text" name="price" id="price" class="Input-box" placeholder="eg. 25, 35" value = {{price}}>
+                </div>
+                <div class="input-group">
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" id="location" class="Input-box" placeholder="eg. Orlando" value = {{location}}>
+                </div>
+                <div>
+                    <input type="submit" value="Add Job" class="btn btn-reverse">
+                </div>
+                
+                
+            </form>
+        </div>
+    </section>
+    
