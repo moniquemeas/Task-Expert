@@ -20,7 +20,9 @@ section {
     padding: 60px;
 }
 
-/*----------------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 /*Style Header Section*/
 header {
@@ -69,7 +71,7 @@ header nav ul {
 }
 header nav ul li a {
     padding: 10px 15px;
-    font-weight: lighter;
+    font-weight: bold;
     font-size: 3.0vw;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -82,7 +84,9 @@ header nav ul li a:hover {
 }
 /*Header Section Styling Ends*/
 
-/*----------------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 /*Style Footer Section*/
 footer {
@@ -109,8 +113,9 @@ footer a {
 }
 /*Footer Section Styling Ends*/
 
-/*----------------------------------------------------------*/
-
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 /*Style Hero Section*/
 .hero {
@@ -120,7 +125,7 @@ footer a {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
     background-attachment: fixed;
     background-position: 15%;
     padding-top: 1px;
@@ -146,7 +151,9 @@ footer a {
 }
 /*Hero Section Styling Ends*/
 
-/*----------------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 .zip-btn {
     border: 3px solid var(--primary-color);
@@ -193,21 +200,23 @@ footer a {
 /*End Find An Expert Section Styling*/
 
 /*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 /*Style Dashboard Hero Form */
 .hero-form {
     border: 3px solid var(--secondary-color);
     background-color: rgba(72, 122, 180, 0.8);
     padding: 20px;
-    color: var(--secondary-color);
-    width: 40%;
+    color: black;
+    width: 50%;
     margin: 3.5%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
 
 .hero-form h3 {
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
 }
 
