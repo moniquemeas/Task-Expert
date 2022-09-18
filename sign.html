@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/secondarystyle.css">
+    <link rel="stylesheet" href="./assets/signinstyle.css">
 </head>
 
 <!--Main Content-->
@@ -36,6 +36,41 @@
         </nav>
     </header>
 
+    <!--Hero-->
+    <section class="hero">
+        <div class="hero-form" id="up">
+            <h3 class="signin">Sign In</h3>
+            <p>Already have an account? Sign in!</p>
+            <form>
+                <label for="name">Enter Your Username</label>
+                <input type="text" placeholder="Username" class="form-input" />
+                <label for="email">Enter Your Password:</label>
+                <input type="email" placeholder="Password" class="form-input" />
+                <button type="submit">
+                    Sign In
+                </button>
+            </form>
+        </div>
+        <div class="hero-form" id="in">
+            <h3 class="signin">Sign Up</h3>
+            <p>Fill out this form to create an account!</p>
+            <!--add form element-->
+            <form>
+                <label for="name">Enter A Username</label>
+                <input type="text" placeholder="Username" class="form-input" />
+                <label for="email">Enter a Password:</label>
+                <input type="email" placeholder="Password" class="form-input" />
+                <label for="email">Verify Password:</label>
+                <input type="email" placeholder="Verify Password" class="form-input" />
+                <button type="submit">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!--Footer-->
     <footer class="footer">
         <h2> 🌊 Made by the Killer Waves</h2>
         <a>&copy; 2022 Killer Waves</a>
