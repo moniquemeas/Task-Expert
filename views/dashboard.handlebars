@@ -1,31 +1,19 @@
-<div>This is dashboard</div>
-<main class="container">
-        <div class="container d-flex justify-content-around mt-5">
-            <div class="new-post">
-                <h4>Create New Job</h4>
-          
-            <form class="add-job d-flex flex-column" method="POST" action="/dashboard" enctype="multipart/form-data">
-              <label class="form-label" for="userImage">Profile Image</label>
-              <input type="file" name="file">
-                <label class="form-label" for="name">Full Name</label>
-                <input type="text" class="name-input">
-                <label class="form-label" for="phone">Phone</label>
-                <input type="text" class="phone-input" >
-                <label class="form-label" for="email">Email</label>
-                <input type="text" class="email-input" >
-                <label class="form-label" for="desc-input">Services</label>
-                <input type="text" class="service-input" >
-                <label class="form-label" for="price">Price per hour</label>
-                <input type="text" class="price-input" >
-                <label class="form-label" for="location">Location</label>
-                <input type="text" class="location-input" >
-                <label class="form-label" for="user-id" >User ID</label>
-                <input type="text" class="user_id-input" >
+<div class="container">
+   
+    <div class="card" style="width:400px">
+              <img class="card-img-top" src="{{task.userImage}}" alt="Card image" style="width: 100%">
+              <div class="card-body">
+                <h4 class="card-title">{{task.name}}</h4>
+                <div class="card-text">Phone: {{task.phone}}</div>
+                <div class="card-text">email: {{task.email}}</div>
+                <div class="card-text">Service: {{task.services}}</div>
+                <div class="card-text">Price: {{task.price}}</div>
+                <div class="card-text">Location: {{task.location}}</div>
+                <div class="card-text">username: {{task.user.username}}</div>
+                
                 
 
-                <button type="submit" class="btn bg-dark text-white mt-3">Add Job</button>
-            </form>
+              </div>
         </div>
-
-    </main>
-    <script src="/javascript/add.js"></script>
+ 
+    </div>
