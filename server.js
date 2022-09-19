@@ -1,31 +1,44 @@
-const express = require('express');
-const sequelize = require('./configs/connection');
-const path = require('path');
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
-const upload = require('express-fileupload');
-const passport = require("passport");
+require('dotenv').config();
+const express = require ("express");
+const configViewEngine = require ("./src/configs/viewEngine");
+const initWebRoutes = require ("./src/routes/web");
+const bodyParser = require ("body-parser");
+const cookieParser = require ('cookie-parser');
+const session = require ("express-session");
+const connectFlash = require ("connect-flash");
+const passport = require ("passport");
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+let app = express();
 
-// middleware
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+//use cookie parser
+app.use(cookieParser('secret'));
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(require('./controllers'));
+//config session
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 // 86400000 1 day
+    }
+}));
 
-// create static folder
-app.use(express.static(path.join(__dirname, 'public')));
+// Enable body parser post data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(upload())
+//Config view engine
+configViewEngine(app);
 
-//Config Passport Middleware
+//Enable flash message
+app.use(connectFlash());
+
+//Config passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-sequelize.sync({force: false}).then(() => {
-    app.listen(PORT, () => console.log('Server is running on port 3001.'))
-});
+// init all web routes
+initWebRoutes(app);
+
+let port = process.env.PORT || 8080;
+app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));

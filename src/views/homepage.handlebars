@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container mt-5">
+            <h1>HomePage - Hello world</h1>
+            <div>
+                <div>Welcome to the homepage</div>
+                <section class="container">
+                    {{#each tasks as |task|}}
+                    <div class="card" style="width:200px">
+                        <img class="card-img-top" src="{{task.userImage}}" alt="Card image" style="width: 200px">
+                        <div class="card-body">
+                            <h4 class="card-title">name here:{{task.name}}</h4>
+                            <div class="card-text">Phone: {{task.phone}}</div>
+                            <div class="card-text">email: {{task.email}}</div>
+                            <div class="card-text">Service: {{task.services}}</div>
+                            <div class="card-text">Price: {{task.price}}</div>
+                            <div class="card-text">Location: {{task.location}}</div>
+                            <div class="card-text">username: {{task.user.username}}</div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </section>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
