@@ -35,7 +35,7 @@ let initWebRoutes = (app) => {
         })
         
     });
-    router.get("/login",loginController.checkLoggedOut, loginController.getPageLogin);
+    router.get("/login", loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/dashboard",
         failureRedirect: "/login",

@@ -21,7 +21,7 @@ let handleLogin = async (req, res) => {
 
     try {
         await loginService.handleLogin(req.body.email, req.body.password);
-        return res.redirect("/dashboard");
+        return res.redirect("/");
     } catch (err) {
         req.flash("errors", err);
         return res.redirect("/login");
