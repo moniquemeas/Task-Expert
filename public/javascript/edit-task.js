@@ -9,6 +9,9 @@ const price = document.querySelector('#price-input').value.trim();
 const location = document.querySelector('#location-input').value.trim();
 const userId = document.querySelector('#user_id-input').value.trim();
 
+const id = window.location.toString().split('/')[
+  window.location.toString().split('/').length - 1
+];
 const file = userImage.files[0];
 
 const sendData = new FormData();
@@ -21,15 +24,16 @@ sendData.append('services', services);
 sendData.append('location', location);
 sendData.append('user_id', userId);
 
-const response = await fetch('/api/tasks', {
+const response = await fetch(`/api/tasks/${id}`, {
   method: "PUT",
   body: sendData,
 })
 if(response.ok){
-  document.location.replace('/')
+  document.location.replace('/dashboard')
+  console.log('updated')
 } else { alert(response.statusText)}
 
 }
 
-document.querySelector('.edit-job').addEventListener('submit', addFormHandler);
+document.querySelector('.edit-task').addEventListener('submit', addFormHandler);
   
