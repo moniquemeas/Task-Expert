@@ -9,7 +9,7 @@ const taskData = [
         price: '15',
         services: 'babasitter',
         location: 'Orlando',
-        user_id: '1'
+        user_id: '4'
     },
     {
         userImage:'images/1663492167347.jpg',
@@ -39,7 +39,7 @@ const taskData = [
         price: '50',
         services: 'plumber',
         location: 'Tampa',
-        user_id: '4'
+        user_id: '1'
     },
     {
         userImage:'images/1663492259971.jpg',
@@ -49,7 +49,7 @@ const taskData = [
         price: '55',
         services: 'mover',
         location: 'Orlando',
-        user_id: '5'
+        user_id: '6'
     },
     {
         userImage:'images/1663492281568.jpg',
@@ -59,7 +59,7 @@ const taskData = [
         price: '15',
         services: 'dogsitter',
         location: 'Orlando',
-        user_id: '6'
+        user_id: '7'
     },
     {
         userImage:'images/1663492294644.jpg',
@@ -69,7 +69,7 @@ const taskData = [
         price: '40',
         services: 'housekeeper',
         location: 'Orlando',
-        user_id: '7'
+        user_id: '5'
     }
     
 ]
