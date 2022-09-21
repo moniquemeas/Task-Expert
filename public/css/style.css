@@ -37,7 +37,7 @@ header {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-image: url("../assets/images/banner.jpeg");
+    background-image: url("../public/images/banner.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -119,7 +119,7 @@ footer a {
 
 /*Style Hero Section*/
 .hero {
-    background-image: url("../assets/images/banner.jpeg");
+    background-image: url("/images/banner.jpeg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -132,7 +132,7 @@ footer a {
 }
 
 .hero2 {
-    background-image: url("../assets/images/banner.jpeg");
+    background-image: url("/images/banner.jpeg");
     background-size: cover;
     background-position: center;
     display: flex;

@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Search for username</h2>
+    <section id="search" class="search-wrap">
+<form action="/dashboard/search"  class="search-form">
+  <input type="search" name="term" placeholder="location" style="width:400px">
+    <input class="btn btn-outline-secondary bg-dark text-white" type="submit" value="Search">
+</form>
+</section class="hero2">
+       {{#each tasks as |task|}} 
+    <div class="card" style="width:300px">
+        <form class="hero-form">
+                <img class="card-img-top" src="{{task.userImage}}" alt="Card image" style="width:300px">
+              <div class="card-body">
+                <h4 class="card-title form-input">{{task.name}}</h4>
+                <div class="card-text form-input">Phone: {{task.phone}}</div>
+                <div class="card-text form-input">email: {{task.email}}</div>
+                <div class="card-text form-input">Service: {{task.services}}</div>
+                <div class="card-text form-input">Price: {{task.price}}</div>
+                <div class="card-text form-input">Location: {{task.location}}</div>
+                <div class="card-text form-input">username: {{task.user.username}}</div>
+                <div class="card-text form-input">user_id: {{task.user_id}}</div>
+                <div class="card-text form-input">Task ID: {{task.id}}</div>
+                <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
+                
+            </div>
+        </div>
+   {{/each}}
+    </div>
