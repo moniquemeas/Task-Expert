@@ -1,4 +1,4 @@
-console.log("File is linked")
+
 async function loginFormHandler(event) {
   event.preventDefault();
 
@@ -23,8 +23,6 @@ async function loginFormHandler(event) {
     }
   }
 }
-var targettedElement = document.querySelector('.loginForm')
-console.log(targettedElement)
 
 document.querySelector('.loginForm').addEventListener('submit', loginFormHandler);
  
