@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/secondarystyle.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <!--Main Content-->
@@ -37,24 +37,29 @@
     </header>
 
     <!--Hero-->
-    <section class="hero">
-        <div class="hero-form">
-            <h3>Create A Post</h3>
+    <section class="hero2">
+        <div class="hero-form new-task">
+            <h3>Create A New Job</h3>
             <p>Fill out this form to begin your Task Expert Search</p>
             <!--add form element-->
             <form>
                 <label for="name">Enter full name:</label>
-                <input type="text" placeholder="Your Name" name="name" id="name" class="form-input" />
-                <label for="email">Enter email address:</label>
-                <input type="email" placeholder="Email Address" name="email" id="email" class="form-input" />
+                <input value="{{name}}" d="name-input" type="text" placeholder="Your Name" name="name" id="name" class="form-input">
                 <label for="phone">Enter a telephone number:</label>
-                <input type="tel" placeholder="Phone Number" name="phone" id="phone" class="form-input" />
+                <input value ="{{phone}}" id="phone-input" type="tel" placeholder="Phone Number" name="phone" id="phone" class="form-input">
+                <label for="email">Enter email address:</label>
+                <input value="{{email}}" id="email-input" type="email" placeholder="Email Address" name="email" id="email" class="form-input">
                 <label for="service">Service:</label> 
-                <input type="text" placeholder="Enter a Description of Service Being Provided" class="form-input">
+                <input value="{{services}}" id="service-input" type="text" placeholder="Enter a Description of Service Being Provided" class="form-input">
                 <label for="prices"> Price Per Hour:</label>
-                <input type="number" palceholder="Price" class="form-input">
+                <input value="{{price}}" id="price-input" type="number" palceholder="Price" class="form-input">
+                <label for="location">Location:</label>
+                <input value="{{location}}" id="location-input" type="text" placeholder="Enter the Location" class="form-input">
+                <label for="user-id">User ID:</label>
+                <input value="{{user_id}}" id="user_id-input" type="text" placeholder="Enter User ID" class="form-input">
+
                 <button type="submit">
-                    Start Helping!
+                    Add New Job
                 </button>
             </form>
         </div>
