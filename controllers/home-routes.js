@@ -1,10 +1,8 @@
 const router = require('express').Router();
-
 const sequelize = require('../config/connection');
 const {Task, User} = require('../models');
-
-
-
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 router.get('/', (req, res) => {
     console.log(req.session);
 
@@ -19,44 +17,52 @@ router.get('/', (req, res) => {
     })
     .then(taskData => {
         const tasks = taskData.map(task => task.get({plain: true}));
-        console.log(tasks);
+        
         res.render('homepage', {
-            tasks
+            tasks,
+            loggedIn: req.session.loggedIn
 
         });
     })
-    
-  
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 });
 
 
-
-
 router.get('/login', (req, res) => {
-    if(req.session.loggedIn){
-        res.redirect('/');
-        return;
-    }
+ //if(req.session.loggedIn){
+        //res.redirect('/');
+        //return;
+    //}
     res.render('login');
   });
+  router.get('/search', (req, res) => {
+    let {term} = req.query;
 
-router.get('/register', (req, res) => {
-    res.render('register')
-})
-  router.get('/edit', (req, res) => {
+    Task.findAll({
+        where: {
+            location: {[Op.like]: '%' + term + '%'}
+        }
+    })
+    .then(taskData => console.log(taskData))
+    .then(taskData => res.render('homepage', {taskData}))
+    .catch(err => res.render('error', {error: err}));
+});
+  router.get('/logout', (req, res) => {
     
-    res.render('edit');
- });
-  
- router.get('/edit/:id', (req, res) => {
+   res.render('/')
+});
+router.get('/register', (req, res) =>{
+    res.render('register')
+});
+router.get('/add', (req, res) => {
+    res.render('add')
+  });
+  router.get('/edit/:id', (req, res) => {
    
- res.render('edit');
- });
- router.get('/add', (req, res) => {
-   res.render('add')
- })
-  
- 
-
+    res.render('edit');
+   });
 
 module.exports = router

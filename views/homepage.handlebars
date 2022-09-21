@@ -1,4 +1,5 @@
 <div>This is for homepage</div>
+<<<<<<< Updated upstream
 
 <!--Hero-->
 <section class="hero">
@@ -11,6 +12,27 @@
     <!-- *********Add Search Button-->
   </div>
 </section>
+=======
+<section id="search" class="search-wrap">
+<form action="/search"  class="search-form">
+  <input type="search" name="term" placeholder="location" style="width:400px">
+    <input class="btn btn-outline-secondary bg-dark text-white" type="submit" value="Search">
+</form>
+</section>
+<div class="container">
+    {{#each tasks as |task|}}    
+  
+    <div class="card" style="width:300px">
+              <img class="card-img-top" src="{{task.userImage}}" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{task.name}}</h4>
+                <div class="card-text">Phone: {{task.phone}}</div>
+                <div class="card-text">email: {{task.email}}</div>
+                <div class="card-text">Service: {{task.services}}</div>
+                <div class="card-text">Price: {{task.price}}</div>
+                <div class="card-text">Location: {{task.location}}</div>
+                <div class="card-text">username: {{task.user.username}}</div>
+>>>>>>> Stashed changes
 
 <!--Find An Expert Section-->
 <section id="find-expert" class="intro">

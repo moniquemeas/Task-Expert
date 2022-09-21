@@ -15,6 +15,7 @@ async function signupFormHandler(event) {
     });
     console.log(username)
     if(response.ok){
+        
         document.location.replace('/login');
     } else { alert(response.statusText)}
    

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="container">
   <h2>Search for username</h2>
   <section id="search" class="search-wrap">
@@ -38,6 +39,28 @@
       <div class="card-text">
         {{ task.id }}</div>
       <a href="/edit/{{ task.id }}" class="edit-link">Update Task</a>
+=======
+<div class="container d-flex-in-line">    
+       {{#each tasks as |task|}} 
+    <div class="card" style="width:300px">
+       
+                <img class="card-img-top" src="{{task.userImage}}" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title">{{task.name}}</h4>
+                <div class="card-text">Phone: {{task.phone}}</div>
+                <div class="card-text">email: {{task.email}}</div>
+                <div class="card-text">Service: {{task.services}}</div>
+                <div class="card-text">Price: {{task.price}}</div>
+                <div class="card-text">Location: {{task.location}}</div>
+                <div class="card-text">username: {{task.user.username}}</div>
+                <div class="card-text">user_id: {{task.user_id}}</div>
+                <div class="card-text">Task ID: {{task.id}}</div>
+                <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
+                
+            </div>
+        </div>
+   {{/each}}
+>>>>>>> Stashed changes
     </div>
   </div>
   {{/each}}

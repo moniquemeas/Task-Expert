@@ -2,12 +2,12 @@ const router = require('express').Router();
 
 const sequelize = require('../config/connection');
 const {Task, User} = require('../models');
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+const withAuth = require('../utils/auth');
 
 
-router.get('/', (req, res) => {
-    console.log(req.session);
+
+router.get('/',withAuth, (req, res) => {
+
     console.log('==============')
     Task.findAll({
         attributes: ['id', 'name', 'phone', 'email','price','services', 'location', 'userImage', 'user_id'],
@@ -32,17 +32,14 @@ router.get('/', (req, res) => {
     
   
 });
-router.get('/search', (req, res) => {
-    let {term} = req.query;
+router.get('/dashboard/add', (req, res) => {
+    res.render('add')
+  });
 
-    Task.findAll({
-        where: {
-            location: {[Op.like]: '%' + term + '%'}
-        }
-    })
-    .then(taskData => console.log(taskData))
-    .then(taskData => res.render('dashboard', {taskData}))
-    .catch(err => res.render('error', {error: err}));
-})
+
+
+
+
+
 
 module.exports = router;

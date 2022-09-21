@@ -49,6 +49,7 @@ User.create({
 .then(userData => {
     req.session.save(() => {
         req.session.user_id = userData.id;
+        req.session.username=userData.id;
         req.session.loggedIn =true;
         res.json(userData);
     })
@@ -82,6 +83,7 @@ User.findOne({
   
         req.session.save(() => {
         req.session.user_id = userData.id;
+        req.session.username=userData.id;
         req.session.loggedIn = true;
     
         res.json({ user: userData, message: 'You are now logged in!' });
@@ -90,14 +92,15 @@ User.findOne({
 });
 
 router.post('/logout', (req, res) => {
-    if(req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        })
-    } else {
-        res.status(404).end();
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
     }
-});
+    else {
+      res.status(404).end();
+    }
+  });
   
 //update user by id
 router.put('/:id', (req, res) => {
