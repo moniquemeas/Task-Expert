@@ -50,11 +50,15 @@ router.get('/login', (req, res) => {
     .then(taskData => res.render('homepage', {taskData}))
     .catch(err => res.render('error', {error: err}));
 });
-  router.get('/logout', (req, res) => {
+  //router.get('/logout', (req, res) => {
     
-   res.render('/')
-});
+  // res.render('/')
+//});
 router.get('/register', (req, res) =>{
+    if (req.session.loggedIn) {
+        res.redirect('/')
+        return;
+    }
     res.render('register')
 });
 router.get('/add', (req, res) => {

@@ -1,45 +1,3 @@
-<<<<<<< Updated upstream
-<div class="container">
-  <h2>Search for username</h2>
-  <section id="search" class="search-wrap">
-    <form action="/dashboard/search" class="search-form">
-      <input type="search" name="term" placeholder="location" style="width:400px">
-      <input class="btn btn-outline-secondary bg-dark text-white" type="submit" value="Search"></form>
-  </section>
-</div>
-
-<div class="container d-flex justify-content-center" style="width:100%">
-  {{#each tasks as |task|}}
-  <div class="card resize">
-    <img class="card-img-top" src="{{ task.userImage }}" alt="Card image">
-    <div class="card-body">
-      <h4 class="card-title">{{ task.name }}</h4>
-      <b>Phone:</b>
-      <div class="card-text">
-        {{ task.phone }}</div>
-      <b>email:</b>
-      <div class="card-text">
-        {{ task.email }}</div>
-      <b>Service:</b>
-      <div class="card-text">
-        {{ task.services }}</div>
-      <b>Price:</b>
-      <div class="card-text">
-        {{ task.price }}</div>
-      <b>Location:</b>
-      <div class="card-text">
-        {{ task.location }}</div>
-      <b>username:</b>
-      <div class="card-text">
-        {{ task.user.username }}</div>
-      <b>user_id:</b>
-      <div class="card-text">
-        {{ task.user_id }}</div>
-      <b>Task ID:</b>
-      <div class="card-text">
-        {{ task.id }}</div>
-      <a href="/edit/{{ task.id }}" class="edit-link">Update Task</a>
-=======
 <div class="container d-flex-in-line">    
        {{#each tasks as |task|}} 
     <div class="card" style="width:300px">
@@ -60,8 +18,7 @@
             </div>
         </div>
    {{/each}}
->>>>>>> Stashed changes
     </div>
   </div>
-  {{/each}}
+  
 </div>

@@ -1,40 +1,12 @@
 <div>This is for homepage</div>
-<<<<<<< Updated upstream
-
-<!--Hero-->
-<section class="hero">
-  <div class="hero-cta">
-    <h2>Need A Task Done?</h2>
-    <p>
-      Let us help! Task expert connects those in need of assitance, with those willing to lend that helping hand-
-      without the crazy prices.
-    </p>
-    <!-- *********Add Search Button-->
-  </div>
-</section>
-=======
 <section id="search" class="search-wrap">
 <form action="/search"  class="search-form">
   <input type="search" name="term" placeholder="location" style="width:400px">
     <input class="btn btn-outline-secondary bg-dark text-white" type="submit" value="Search">
 </form>
 </section>
-<div class="container">
-    {{#each tasks as |task|}}    
-  
-    <div class="card" style="width:300px">
-              <img class="card-img-top" src="{{task.userImage}}" alt="Card image">
-              <div class="card-body">
-                <h4 class="card-title">{{task.name}}</h4>
-                <div class="card-text">Phone: {{task.phone}}</div>
-                <div class="card-text">email: {{task.email}}</div>
-                <div class="card-text">Service: {{task.services}}</div>
-                <div class="card-text">Price: {{task.price}}</div>
-                <div class="card-text">Location: {{task.location}}</div>
-                <div class="card-text">username: {{task.user.username}}</div>
->>>>>>> Stashed changes
 
-<!--Find An Expert Section-->
+
 <section id="find-expert" class="intro">
   <div class="flex-row">
     <h2 class="section-title secondary-border">Find An Expert</h2>
@@ -71,9 +43,3 @@
   </div>
 </section>
 
-<!--Footer-->
-<footer class="footer">
-  <h2>
-    🌊 Made by the Killer Waves</h2>
-  <a>&copy; 2022 Killer Waves</a>
-</footer>
