@@ -131,6 +131,18 @@ footer a {
     padding-top: 1px;
 }
 
+.hero2 {
+    background-image: url("../assets/images/banner.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: 15%;
+    padding-top: 1px;
+}
 
 .hero-cta {
     width: 40%;
