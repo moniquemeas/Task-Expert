@@ -84,32 +84,36 @@ router.get('/:id', (req, res) =>{
 
 //create new task
 router.post('/',upload, (req, res) => {
-    const re = /\\/gi;
-    const newFile = req.file.path.replace(re, '/');
-    const imageFile = newFile.replace('public/', '');
-    console.log(newFile);
-    console.log(imageFile)
-    Task.create({
-        userImage: imageFile,
-        name: req.body.name,
-        phone: req.body.phone,
-        email: req.body.email,
-        price: req.body.price,
-        services: req.body.services,
-        location: req.body.location,
-        user_id: req.body.user_id
-    })
-    .then(taskData => res.json(taskData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    if (req.session){
+        const re = /\\/gi;
+        const newFile = req.file.path.replace(re, '/');
+        const imageFile = newFile.replace('public/', '');
+        console.log(newFile);
+        console.log(imageFile)
+        Task.create({
+            userImage: imageFile,
+            name: req.body.name,
+            phone: req.body.phone,
+            email: req.body.email,
+            price: req.body.price,
+            services: req.body.services,
+            location: req.body.location,
+            user_id: req.body.user_id
+        })
+        .then(taskData => res.json(taskData))
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    }
+    
     
 
 });
 
 //update task by id
 router.put('/:id',upload, (req, res) => {
+  
     const re = /\\/gi;
     const newFile = req.file.path.replace(re, '/');
     const imageFile = newFile.replace('public/', '');

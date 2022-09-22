@@ -1,24 +1,39 @@
-<div class="container d-flex-in-line">    
-       {{#each tasks as |task|}} 
-    <div class="card" style="width:300px">
-       
-                <img class="card-img-top" src="{{task.userImage}}" alt="Card image">
-              <div class="card-body">
-                <h4 class="card-title">{{task.name}}</h4>
-                <div class="card-text">Phone: {{task.phone}}</div>
-                <div class="card-text">email: {{task.email}}</div>
-                <div class="card-text">Service: {{task.services}}</div>
-                <div class="card-text">Price: {{task.price}}</div>
-                <div class="card-text">Location: {{task.location}}</div>
-                <div class="card-text">username: {{task.user.username}}</div>
-                <div class="card-text">user_id: {{task.user_id}}</div>
-                <div class="card-text">Task ID: {{task.id}}</div>
-                <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
-                
-            </div>
+
+  <div class="flex row">
+    <div class="container d-flex" style="width: 100%;">
+      {{#each tasks as |task|}}
+      <div class="card resize">
+        <img class="card-img-top" src="{{ task.userImage }}" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{ task.name }}</h4>
+          <b>Phone:</b>
+          <div class="card-text">
+            {{ task.phone }}</div>
+          <b>email:</b>
+          <div class="card-text">
+            {{ task.email }}</div>
+          <b>Service:</b>
+          <div class="card-text">
+            {{ task.services }}</div>
+          <b>Price:</b>
+          <div class="card-text">
+            ${{ task.price }} per hour </div>
+          <b>Location:</b>
+          <div class="card-text">
+            {{ task.location }}</div>
+          <b>username:</b>
+          <div class="card-text">
+            {{ task.user.username }}</div>
+            <b>User ID:</b>
+            <div class="card-text">
+            {{task.user_id}}</div>
+            <b>Task ID:</b>
+            <div class="card-text">
+            {{task.id}}</div>
+            <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
         </div>
-   {{/each}}
+      </div>
+      {{/each}}
     </div>
   </div>
-  
-</div>
+
