@@ -45,9 +45,7 @@ router.get('/login', (req, res) => {
 router.get('/register', (req, res) =>{
     res.render('register')
 });
-router.get('/add', (req, res) => {
-    res.render('add')
-  });
+
   router.get('/edit/:id', (req, res) => {
    
     res.render('edit');
