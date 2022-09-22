@@ -32,10 +32,9 @@ router.get('/',withAuth, (req, res) => {
     
   
 });
-router.get('/dashboard/add', (req, res) => {
+router.get('/dasboard/add', (req, res) => {
     res.render('add')
-  });
-
+});
 
 
 

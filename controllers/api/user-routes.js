@@ -93,18 +93,16 @@ User.findOne({
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    }
-    else {
-      res.status(404).end();
-    }
+        req.session.destroy(() => {
+          res.status(204).end();
+        });
+      } else {
+        res.status(404).end();
+      }
   });
   
 //update user by id
 router.put('/:id', (req, res) => {
-    
     User.update(req.body, 
         {
             individualHooks: true,
@@ -113,7 +111,7 @@ router.put('/:id', (req, res) => {
             }
         })
 .then(userData => {
-    if(!userData[0]) {
+    if(!userData) {
         res.status(404).json({message: 'No user found with this id.'});
         return;
     }

@@ -50,26 +50,6 @@ const taskData = [
         services: 'mover',
         location: 'Orlando',
         user_id: '6'
-    },
-    {
-        userImage:'images/1663492281568.jpg',
-        name: 'Jack McKinnon',
-        phone: '123-578-2000',
-        email: 'jack@gmail.com',
-        price: '15',
-        services: 'dogsitter',
-        location: 'Orlando',
-        user_id: '7'
-    },
-    {
-        userImage:'images/1663492294644.jpg',
-        name: 'Jojo Lennen',
-        phone: '123-578-3654',
-        email: 'jojo@gmail.com',
-        price: '40',
-        services: 'housekeeper',
-        location: 'Orlando',
-        user_id: '5'
     }
     
 ]

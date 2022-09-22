@@ -1,16 +1,4 @@
-<div>This is for homepage</div>
-<section id="search" class="search-wrap">
-<form action="/search"  class="search-form">
-  <input type="search" name="term" placeholder="location" style="width:400px">
-    <input class="btn btn-outline-secondary bg-dark text-white" type="submit" value="Search">
-</form>
-</section>
 
-
-<section id="find-expert" class="intro">
-  <div class="flex-row">
-    <h2 class="section-title secondary-border">Find An Expert</h2>
-  </div>
   <div class="flex row">
     <div class="container d-flex" style="width: 100%;">
       {{#each tasks as |task|}}
@@ -29,7 +17,7 @@
             {{ task.services }}</div>
           <b>Price:</b>
           <div class="card-text">
-            {{ task.price }}</div>
+           ${{ task.price }} per hour </div>
           <b>Location:</b>
           <div class="card-text">
             {{ task.location }}</div>
@@ -41,5 +29,5 @@
       {{/each}}
     </div>
   </div>
-</section>
+
 
