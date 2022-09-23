@@ -1,30 +1,30 @@
+
 <main class="container">
         <div class="container d-flex justify-content-around mt-5">
             <div class="new-task">
                 <h4>Create New Job</h4>
-          <form class="edit-task d-flex flex-column" id="add-task" >
+          <form class="edit-form hero-form d-flex flex-column" id="add-task" >
            
               <label class="form-label" for="userImage">Upload Image</label>
-              <input type="file" name="file" id="user-image">
+              <input type="file" class="form-input" name="file" id="user-image">
            
                 <label class="form-label" for="name" >Full Name</label>
-                <input type="text" id="name-input" value="{{name}}">
+                <input type="text" class="form-input" id="name-input" value="{{name}}">
                 <label class="form-label" for="phone">Phone</label>
-                <input type="text" id="phone-input" value ="{{phone}}">
-                <label class="form-label" for="email">Email</label>
-                <input type="text" id="email-input" value="{{email}}" >
-                <label class="form-label" for="desc-input">Services</label>
-                <input type="text" id="service-input" value="{{services}}" >
-                <label class="form-label" for="price">Price per hour</label>
-                <input type="text" id="price-input" value="{{price}}" >
-                <label class="form-label" for="location">Location</label>
-                <input type="text" id="location-input" value ="{{location}}">
-                 <label class="form-label" for="user-id" >User ID</label>
-                <input type="text" id="user_id-input" value="{{user_id}}">
+                <input type="text" class="form-input" id="phone-input" value ="{{phone}}">
                 
-
-                <button type="submit" class="edit-task btn bg-dark text-white mt-3">Update Task</button>
-                <button type="submit" class="delete-task btn bg-dark text-white mt-3">Delete</button>
+                <label class="form-label" for="desc-input">Services</label>
+                <input type="text" class="form-input" id="service-input" value="{{services}}" >
+                <label class="form-label" for="price">Price per hour</label>
+                <input type="text" class="form-input" id="price-input" value="{{price}}" >
+                <label class="form-label" for="location">Location</label>
+                <input type="text" class="form-input" id="location-input" value ="{{location}}">
+                <label class="form-label" for="user-id" >User ID</label>
+                <input type="text" class="form-input" id="user_id-input" value="{{user_id}}">
+                
+                <button type="submit" class="edit-task btn btn-secondary mt-3">Update Task</button>
+                <button type="submit" class="delete-task btn btn-secondary mt-3">Delete</button>
+             
             
             </form>
         </div>

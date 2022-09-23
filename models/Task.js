@@ -1,11 +1,11 @@
-const {Model, DataTypes} = require('sequelize');
-
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-// create Task model
+// create our Task model
 class Task extends Model {}
 
-Task.init({
+// create fields/columns for Task model
+Task.init(
+  {
     id:{
         type:DataTypes.INTEGER,
         allowNull: false,
@@ -22,14 +22,7 @@ Task.init({
     phone:{
         type:DataTypes.STRING,
         allowNull: false,
-    },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false,
-
-        
-    },
-    
+    },    
     price: {
         type:DataTypes.INTEGER,
         allowNull:false
@@ -51,11 +44,12 @@ Task.init({
         }
     }
 },
-{
+  {
     sequelize,
-    timestamps:false,
-    freezeTableName:true,
-    underscored:true,
-    modelName:'task'
-});
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'task'
+  }
+);
+
 module.exports = Task;

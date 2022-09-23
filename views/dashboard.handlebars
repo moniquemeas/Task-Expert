@@ -1,39 +1,60 @@
+<main class="container">
+<div>
+  
+  <h2 class="text-dark">User ID: {{userId}}</h2>
+</div>
+        <div class="container d-flex justify-content-around mt-5">
+            <div class="new-task">
+                <h4>Create New Job</h4>
+                
+          <form class="add-job hero-form d-flex flex-column" id="add-task" >
+           
+              <label class="form-label" for="userImage">Upload Image</label>
+              <input type="file" class="form-input" name="file" id="user-image">
+           
+                <label class="form-label" for="name" >Full Name</label>
+                <input type="text" class="form-input" id="name-input" value="{{name}}">
+                <label class="form-label" for="phone">Phone</label>
+                <input type="text" class="form-input" id="phone-input" value ="{{phone}}">
+                
+                <label class="form-label" for="desc-input">Services</label>
+                <input type="text" class="form-input" id="service-input" value="{{services}}" >
+                <label class="form-label" for="price">Price per hour</label>
+                <input type="text" class="form-input" id="price-input" value="{{price}}" >
+                <label class="form-label" for="location">Location</label>
+                <input type="text" class="form-input" id="location-input" value ="{{location}}">
+                <label class="form-label" for="user-id" >User ID</label>
+                <input type="text" class="form-input" id="user_id-input" value="{{user_id}}">
+                
 
-  <div class="flex row">
-    <div class="container d-flex" style="width: 100%;">
-      {{#each tasks as |task|}}
-      <div class="card resize">
-        <img class="card-img-top" src="{{ task.userImage }}" alt="Card image">
-        <div class="card-body">
-          <h4 class="card-title">{{ task.name }}</h4>
-          <b>Phone:</b>
-          <div class="card-text">
-            {{ task.phone }}</div>
-          <b>email:</b>
-          <div class="card-text">
-            {{ task.email }}</div>
-          <b>Service:</b>
-          <div class="card-text">
-            {{ task.services }}</div>
-          <b>Price:</b>
-          <div class="card-text">
-            ${{ task.price }} per hour </div>
-          <b>Location:</b>
-          <div class="card-text">
-            {{ task.location }}</div>
-          <b>username:</b>
-          <div class="card-text">
-            {{ task.user.username }}</div>
-            <b>User ID:</b>
-            <div class="card-text">
-            {{task.user_id}}</div>
-            <b>Task ID:</b>
-            <div class="card-text">
-            {{task.id}}</div>
-            <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
+                <button type="submit" class="add-job btn btn-secondary mt-3">Add Job</button>
+            
+            </form>
         </div>
-      </div>
-      {{/each}}
-    </div>
-  </div>
 
+    </main>
+
+
+<section id="find-expert" class="intro">
+  <div class="hero2">
+    <div style="width: 100%;"></div>
+    {{#each tasks as |task|}}    
+    <div class="card text-dark" style="width:300px; height:700px">
+              <img class="card-img-top" src="{{task.userImage}}" alt="Card image" style="height:400px">
+              <div class="card-body">
+                <h4 class="card-title">{{task.name}}</h4>
+                <div class="card-text">Phone: {{task.phone}}</div>
+                <div class="card-text">email: {{task.user.email}}</div>
+                <div class="card-text">Service: {{task.services}}</div>
+                <div class="card-text">Price: {{task.price}}</div>
+                <div class="card-text">Location: {{task.location}}</div>
+                <div class="card-text">username: {{task.user.username}}</div>
+                <div class="card-text">User ID: {{task.user_id}}</div>
+                <a href="/edit/{{task.id}}" class="edit-link">Update Task</a>
+              </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+<script src="/javascript/add.js"></script>
