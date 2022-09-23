@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/style.css">
-  <title>Task Expert</title>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+     <link rel="stylesheet" href="/css/style.css">
+    <title>Task Expert</title>
+    
 </head>
 
 <body>
-  <div class=" main-display container">
-    <header class="container bg-dark text-white">
-      <nav style="justify-content-center">
-        <ul class="navigation-list nav nav-tabs d-flex flex-row-reverse">
-          <li class="nav-item">
-            <a class="nav-link " href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="/">Home</a>
-          </li>
+  <div>
+    <header class="bg-dark text-white" >
+      <div class="title-box mt-3"><h1>Task Expert</h1></div>
+      <ul class="navigation-list nav nav-tabs d-flex flex-row-reverse">
 
-        </ul>
-        <div class="title-box mt-3">
-          <h1>Task Expert</h1>
-        </div>
+        {{#if loggedIn}}
+
+        <li class="nav-item">
+          <a class="nav-link " href="/dashboard">dashboard</a>
+      </li>
+      
+      <li class="nav-item">
+           <button id="logout" class="btn btn-link">Logout</button>
+      </li>
+       {{else}}
+        <li class="nav-item">
+        <a class="nav-link " href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link " href="/register">Register</a>
+      </li>
+       <li class="nav-item">
+          <a class="nav-link " href="/">Home</a>
+      </li>
+       {{/if}}
+     </ul>
     </header>
-    <main class="container">
-      {{{body}}}
-
+    <main class="wrapper">
+      {{{ body }}}
     </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
   </div>
-
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

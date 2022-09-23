@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const {User, Task} = require('../../models');
+const sequelize = require('../../config/connection');
+const { Task, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 const path = require('path');
 const multer = require('multer');
 
@@ -14,7 +16,6 @@ const storage = multer.diskStorage({
 
     }
 });
-
 //function to upload images
 const upload = multer({
     storage: storage,
@@ -34,96 +35,90 @@ const upload = multer({
 }).single('userImage')
 
 
-
-
-//get all tasks
+// get all users
 router.get('/', (req, res) => {
-    Task.findAll({
-        attributes: ['id', 'name', 'phone', 'email','price','services', 'location', 'userImage'],
-        include:[
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-    })
-    .then(taskData => res.json(taskData))
+  console.log('======================');
+  Task.findAll({
+    attributes: [
+        'id', 'name', 'phone','price','services', 'location', 'userImage'],
+    include: [
+     
+      {
+        model: User,
+        attributes: ['username', 'email']
+      }
+    ]
+  })
+    .then(dbTaskData => res.json(dbTaskData))
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+      console.log(err);
+      res.status(500).json(err);
     });
-
 });
 
-//get task by id
-router.get('/:id', (req, res) =>{
-    Task.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: ['id', 'name', 'phone', 'email','price','services', 'location', 'userImage'],
-        include: [
-            {
-                model: User,
-                attributes: ['username'],
-            }
-        ]
-    })
-    .then(taskData => {
-        if(!taskData){
-            res.status(404).json({ message: 'No task found with this id' });
+router.get('/:id', (req, res) => {
+  Task.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: ['id', 'name', 'phone','price','services', 'location', 'userImage'],
+    include: [
+      
+      {
+        model: User,
+        attributes: ['username', 'email']
+      }
+    ]
+  })
+    .then(dbTaskData => {
+      if (!dbTaskData) {
+        res.status(404).json({ message: 'No task found with this id' });
         return;
-        }
-        res.json(taskData);
+      }
+      res.json(dbTaskData);
     })
     .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-//create new task
-router.post('/',upload, (req, res) => {
-    if (req.session){
-        const re = /\\/gi;
-        const newFile = req.file.path.replace(re, '/');
-        const imageFile = newFile.replace('public/', '');
-        console.log(newFile);
-        console.log(imageFile)
-        Task.create({
-            userImage: imageFile,
-            name: req.body.name,
-            phone: req.body.phone,
-            email: req.body.email,
-            price: req.body.price,
-            services: req.body.services,
-            location: req.body.location,
-            user_id: req.body.user_id
-        })
-        .then(taskData => res.json(taskData))
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        });
-    }
-    
-    
+router.post('/', upload, withAuth, (req, res) => {
 
-});
-
-//update task by id
-router.put('/:id',upload, (req, res) => {
-  
     const re = /\\/gi;
     const newFile = req.file.path.replace(re, '/');
     const imageFile = newFile.replace('public/', '');
     console.log(newFile);
     console.log(imageFile)
+    Task.create({
+        userImage: imageFile,
+        name: req.body.name,
+        phone: req.body.phone,
+        price: req.body.price,
+        services: req.body.services,
+        location: req.body.location,
+        user_id: req.session.user_id
+  })
+    .then(dbTaskData => res.json(dbTaskData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
+
+router.put('/:id',upload, (req, res) => {
+  const re = /\\/gi;
+  const newFile = req.file.path.replace(re, '/');
+  const imageFile = newFile.replace('public/', '');
+  console.log(newFile);
+  console.log(imageFile)
     Task.update({
         userImage: imageFile,
         name: req.body.name,
         phone: req.body.phone,
-        email: req.body.email,
+        
         price: req.body.price,
         services: req.body.services,
         location: req.body.location,
@@ -133,39 +128,38 @@ router.put('/:id',upload, (req, res) => {
         where:{
             id:req.params.id
         }
-    }
-    )
-    .then(taskData => {
-        if (!taskData) {
-          res.status(404).json({ message: 'No task found with this id' });
-          return;
-        }
-        res.json(taskData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-
-});
-//delete task by id
-router.delete('/:id', (req, res) => {
-    Task.destroy({
-        where: {
-            id: req.params.id
-        }
     })
-    .then(taskData => {
-        if (!taskData) {
-          res.status(404).json({ message: 'No task found with this id' });
-          return;
-        }
-        res.json(taskData);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-
+    .then(dbTaskData => {
+      if (!dbTaskData) {
+        res.status(404).json({ message: 'No task found with this id' });
+        return;
+      }
+      res.json(dbTaskData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
+
+router.delete('/:id', withAuth, (req, res) => {
+  console.log('id', req.params.id);
+  Task.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbTaskData => {
+      if (!dbTaskData) {
+        res.status(404).json({ message: 'No task found with this id' });
+        return;
+      }
+      res.json(dbTaskData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
